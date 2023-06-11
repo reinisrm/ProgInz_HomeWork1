@@ -6,34 +6,28 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Table(name = "driver_table")
+@Table(name = "professor_table")
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-public class Driver extends Person{
+public class Cashier extends Person {
 	
 	@Setter(value = AccessLevel.NONE)
-	@Column(name = "Idd")
+	@Column(name = "Idc")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public long idd;
-	
-	@NotNull
-	@Column(name = "BusCategory")
-	Buscategory busCategory;
+	public long idc;
 
-	public Driver(String name, String surname, Buscategory busCategory) {
+	public Cashier(String name, String surname) {
 		super(name, surname);
-		this.busCategory = busCategory;
 	}
 	
 	
