@@ -1,5 +1,40 @@
 package lv.venta.models;
 
-public class Driver {
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+@Table(name = "driver_table")
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+public class Driver extends Person{
+	
+	@Setter(value = AccessLevel.NONE)
+	@Column(name = "idd")
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public long idd;
+	
+	@NotNull
+	@Column(name = "BusCategory")
+	Buscategory busCategory;
+
+	public Driver(String name, String surname, Buscategory busCategory) {
+		super(name, surname);
+		this.busCategory = busCategory;
+	}
+	
+	
 }

@@ -11,12 +11,14 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Table(name = "person_table")
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Person {
 	
