@@ -1,10 +1,13 @@
 package lv.venta.models;
 
+import java.util.Collection;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
@@ -31,6 +34,11 @@ public class Driver extends Person{
 	@Column(name = "BusCategory")
 	Buscategory busCategory;
 
+	@OneToMany(mappedBy = "drivers")
+	@ToString.Exclude
+	private Collection<Trip> trip;
+	
+	
 	public Driver(String name, String surname, Buscategory busCategory) {
 		super(name, surname);
 		this.busCategory = busCategory;

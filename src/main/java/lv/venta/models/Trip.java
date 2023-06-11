@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -52,6 +54,11 @@ public class Trip {
 	@Size(min = 3, max = 50)
 	private String duration;
 
+	@ManyToOne
+	@JoinColumn(name = "idd")
+	private Driver drivers;
+	
+	
 	public Trip(String cities, String driver, LocalDateTime startDateTime, String duration) {
 		this.cities = cities;
 		this.driver = driver;
