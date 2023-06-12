@@ -31,7 +31,7 @@ public class Ticket {
 	@Column(name = "Idt")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public long idt;
+	public int idt;
 	
 	@NotNull
 	@Column(name = "PurchaseDateTime")

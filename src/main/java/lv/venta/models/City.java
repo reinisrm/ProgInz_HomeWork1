@@ -30,7 +30,7 @@ public class City {
 	@Column(name = "Idc")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long idc;
+	private int idc;
 	
 	@NotNull
 	@Column(name = "Title")

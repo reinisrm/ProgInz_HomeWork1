@@ -34,7 +34,7 @@ public class Trip {
 	@Column(name = "Idtr")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public long idtr;
+	public int idtr;
 	
 	@NotNull
 	@Column(name = "StartDateTime")

@@ -27,7 +27,7 @@ public class Cashier extends Person {
 	@Column(name = "Idc")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public long idc;
+	public int idc;
 	
 	
 	

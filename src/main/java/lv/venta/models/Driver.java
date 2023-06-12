@@ -28,7 +28,7 @@ public class Driver extends Person{
 	@Column(name = "Idd")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public long idd;
+	public int idd;
 	
 	@NotNull
 	@Column(name = "BusCategory")
