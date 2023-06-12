@@ -56,7 +56,7 @@ public class Trip {
 
 	@ManyToOne
 	@JoinColumn(name = "idd")
-	private Driver drivers;
+	private Driver tripDriver;
 	
 	
 	public Trip(String cities, String driver, LocalDateTime startDateTime, String duration) {
