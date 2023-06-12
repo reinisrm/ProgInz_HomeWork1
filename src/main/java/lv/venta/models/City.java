@@ -7,6 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
@@ -42,5 +45,10 @@ public class City {
 		this.addressOfStation = addressOfStation;
 	}
 	
+	@ManyToMany 
+	@JoinTable(name = "city_trip_table",
+	joinColumns = @JoinColumn(name="Idtr"),
+	inverseJoinColumns = @JoinColumn(name="Idc"))
+	private Collection<Trip> trips;
 	
 }
