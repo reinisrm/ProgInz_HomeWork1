@@ -55,8 +55,8 @@ public class ProgInzHomeWork1Application {
             //driverRepo.save(driver2);
           
             
-            Ticket ticket1 = new Ticket(LocalDateTime.now(), 10.0f, trip1, false, cashier1);
-            Ticket ticket2 = new Ticket(LocalDateTime.now(), 15.0f, trip2, true, cashier2);
+            //Ticket ticket1 = new Ticket(LocalDateTime.now(), 10.0f, trip1, false, cashier1);
+            //Ticket ticket2 = new Ticket(LocalDateTime.now(), 15.0f, trip2, true, cashier2);
             // ticketRepo.save(ticket1);
             //ticketRepo.save(ticket2);
             
