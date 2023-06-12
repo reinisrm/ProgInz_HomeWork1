@@ -1,5 +1,9 @@
 package lv.venta.repos;
 
-public interface iCityRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import lv.venta.models.City;
+
+public interface iCityRepo extends CrudRepository<City, Long> {
 
 }

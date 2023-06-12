@@ -1,5 +1,9 @@
 package lv.venta.repos;
 
-public interface iTicketRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import lv.venta.models.Ticket;
+
+public interface iTicketRepo extends CrudRepository<Ticket, Long> {
 
 }

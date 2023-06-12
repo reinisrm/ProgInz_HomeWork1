@@ -1,5 +1,9 @@
 package lv.venta.repos;
 
-public interface iTripRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import lv.venta.models.Trip;
+
+public interface iTripRepo extends CrudRepository<Trip, Long> {
 
 }
