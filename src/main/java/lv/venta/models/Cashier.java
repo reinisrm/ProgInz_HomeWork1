@@ -1,10 +1,13 @@
 package lv.venta.models;
 
+import java.util.Collection;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -26,6 +29,10 @@ public class Cashier extends Person {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long idc;
 
+	@OneToMany(mappedBy = "ticketCashier")
+	@ToString.Exclude
+	private Collection<Ticket> ticket;
+	
 	public Cashier(String name, String surname) {
 		super(name, surname);
 	}
