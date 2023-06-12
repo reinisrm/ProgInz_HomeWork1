@@ -33,8 +33,11 @@ public class Driver extends Person{
 	@NotNull
 	@Column(name = "BusCategory")
 	Buscategory busCategory;
-
-	@OneToMany(mappedBy = "tripDriver")
+	
+	
+	
+	//OneToMany Trip
+	@OneToMany(mappedBy = "driver")
 	@ToString.Exclude
 	private Collection<Trip> trip;
 	

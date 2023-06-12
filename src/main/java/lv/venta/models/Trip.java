@@ -15,7 +15,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -37,18 +36,7 @@ public class Trip {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long idtr;
 	
-	@Column(name = "Cities") 
 	@NotNull
-	@Pattern(regexp = "[A-ZĀŠĒĢŪĪĶĻŅŽ]{1}[a-zēīļķšāžņģ\\ ]+")
-	@Size(min = 3, max = 20)
-	private String cities;
-	
-	@Column(name = "Driver")
-	@NotNull
-	@Pattern(regexp = "[A-ZĀŠĒĢŪĪĶĻŅŽ]{1}[a-zēīļķšāžņģ\\ ]+")
-	@Size(min = 3, max = 30)
-	private String driver;
-	
 	@Column(name = "StartDateTime")
 	@NotNull
 	private LocalDateTime startDateTime;
@@ -57,20 +45,30 @@ public class Trip {
 	@NotNull
 	@Size(min = 3, max = 50)
 	private String duration;
-
-	@ManyToOne
-	@JoinColumn(name = "Idd")
-	private Driver tripDriver;
 	
-	@OneToMany(mappedBy = "")
-	@ToString.Exclude
-	private Collection<Ticket> ticketTrip;
 	
+	
+	
+	//ManyToMany cities
 	@ManyToMany(mappedBy = "trips")
-	private Collection<City> cityTrip = new ArrayList<>(); 
+	@ToString.Exclude
+	private Collection<City> cities = new ArrayList<>(); 
+	
+	//ManyToOne Driver
+	@ManyToOne
+	@ToString.Exclude
+	@JoinColumn(name = "Idd")
+	private Driver driver;
+	
+	//OneToMany ticket
+	@OneToMany(mappedBy = "trip")
+	@ToString.Exclude
+	private Collection<Ticket> ticket;
 	
 	
-	public Trip(String cities, String driver, LocalDateTime startDateTime, String duration) {
+	
+	
+	public Trip(ArrayList<City> cities, Driver driver, LocalDateTime startDateTime, String duration) {
 		this.cities = cities;
 		this.driver = driver;
 		this.startDateTime = startDateTime;

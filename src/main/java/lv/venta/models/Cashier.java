@@ -28,8 +28,11 @@ public class Cashier extends Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public long idc;
-
-	@OneToMany(mappedBy = "ticketCashier")
+	
+	
+	
+	//OneToMany ticket
+	@OneToMany(mappedBy = "cashier")
 	@ToString.Exclude
 	private Collection<Ticket> ticket;
 	

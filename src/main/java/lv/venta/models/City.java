@@ -40,11 +40,14 @@ public class City {
 	@NotNull
 	private String addressOfStation;
 	
+	
+	
+	//ManyToMany Trip
 	@ManyToMany 
-	@JoinTable(name = "city_trip_table",
+	@JoinTable(name = "trip_city_table",
 	joinColumns = @JoinColumn(name="Idtr"),
 	inverseJoinColumns = @JoinColumn(name="Idc"))
-	private Collection<Trip> trips;
+	private Collection<Trip> trip;
 
 	public City(String title, String addressOfStation) {
 		this.title = title;

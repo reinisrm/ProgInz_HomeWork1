@@ -19,7 +19,6 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Person {
 	
 	@Column(name = "Name") 

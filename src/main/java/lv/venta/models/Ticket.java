@@ -44,29 +44,23 @@ public class Ticket {
     private float price;
 	
 	@NotNull
-	@Column(name = "Trip")
-	private String trip;
-	
-	@NotNull
 	@Column(name = "IsChild")
 	private boolean isChild;
 	
-	@NotNull
-	@Column(name = "Cashier")
-	private String cashier;
 	
 	
-	@ManyToOne
-	@JoinColumn(name = "Idc")
-	private Cashier ticketCashier;
 	
+	//ManyToOne Trip
 	@ManyToOne
 	@JoinColumn(name = "Idtr")
-	private Trip ticketTrip;
+	private Trip trip;
 	
+	//ManyToOne Cashier
+	@ManyToOne
+	@JoinColumn(name = "Idc")
+	private Cashier cashier;
 	
-
-	public Ticket(LocalDateTime purchaseDateTime, float price, String trip, boolean isChild, String cashier) {
+	public Ticket(LocalDateTime purchaseDateTime, float price, Trip trip, boolean isChild, Cashier cashier) {
 		this.purchaseDateTime = purchaseDateTime;
 		this.price = price;
 		this.trip = trip;
