@@ -41,30 +41,32 @@ public class ProgInzHomeWork1Application {
             // Create and save objects in repositories
             Cashier cashier1 = new Cashier("Anna", "Vitola");
             Cashier cashier2 = new Cashier("Zane", "Berzina");
-            //cashierRepo.save(cashier1);
-            //cashierRepo.save(cashier2);
+            cashierRepo.save(cashier1);
+            cashierRepo.save(cashier2);
             
             City city1 = new City("Riga", "Ventspils iela 42");
             City city2 = new City("Ventspils", "Rigas iela 24");
-            //cityRepo.save(city1);
-            //cityRepo.save(city2);
+            cityRepo.save(city1);
+            cityRepo.save(city2);
             
             Driver driver1 = new Driver("Alekss", "Braucejs", Buscategory.schoolbus);
             Driver driver2 = new Driver("Uldis", "Smits", Buscategory.largebus);
-            //driverRepo.save(driver1);
-            //driverRepo.save(driver2);
-          
-            
-            //Ticket ticket1 = new Ticket(LocalDateTime.now(), 10.0f, trip1, false, cashier1);
-            //Ticket ticket2 = new Ticket(LocalDateTime.now(), 15.0f, trip2, true, cashier2);
-            // ticketRepo.save(ticket1);
-            //ticketRepo.save(ticket2);
+            driverRepo.save(driver1);
+            driverRepo.save(driver2);
             
             Trip trip1 = new Trip(new ArrayList<>(Arrays.asList(city1, city2)), driver1, LocalDateTime.now().plusDays(1), "2 hours");
-            //tripRepo.save(trip1);
+            tripRepo.save(trip1);
             
             Trip trip2 = new Trip(new ArrayList<>(Arrays.asList(city2, city1)), driver2, LocalDateTime.now().plusHours(5), "3 hours");
-            //tripRepo.save(trip2);
+            tripRepo.save(trip2);
+          
+            
+            Ticket ticket1 = new Ticket(LocalDateTime.now(), 10.0f, trip1, false, cashier1);
+            Ticket ticket2 = new Ticket(LocalDateTime.now(), 15.0f, trip2, true, cashier2);
+            ticketRepo.save(ticket1);
+            ticketRepo.save(ticket2);
+            
+       
     		}
 		
         };
