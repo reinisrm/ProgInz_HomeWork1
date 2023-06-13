@@ -25,7 +25,7 @@ public class DriverController {
 	@GetMapping("/showAll") // localhost:8080/driver/showAll
 	public String showAllDrivers(Model model) {
 		model.addAttribute("myDrivers", driverService.selectAllDriver());
-		return "all-driver-page"; 
+		return "driver-all-page"; 
 	}
 	
 
@@ -35,7 +35,7 @@ public class DriverController {
 			try {
 		model.addAttribute("MyDrivers", driverService.selectDriverById(idd));
 		
-		return "show-driver-by-id"; //"driver-by-id"
+		return "driver-one-page"; //"driver-by-id"
 			} catch (Exception e) {
 				return "error-page"; // paradis error-page.html lapu
 			}
@@ -47,14 +47,14 @@ public class DriverController {
 		try {
 		driverService.deleteDriverById(idd);
 			model.addAttribute("myAllDrivers", driverService.selectAllDriver());
-			return "all-driver-page";
+			return "driver-all-page";
 		} catch (Exception e) {
 			return "error-page";
 		}
 	}
 	@GetMapping("/addNew") // localhost:8080/driver/addNew
 	public String addNewDriver(Driver driver) {
-		return "insert-page";
+		return "driver-add-page";
 	}
 	//TODO Izlabot funkciju driver service
 	
@@ -62,7 +62,7 @@ public class DriverController {
 	public String addNewDriver(@Valid Driver driver, BindingResult result) {
 		if(!result.hasErrors()) {
 			driverService.insertNewDriver(driver);
-			return "redirect:/showAll";
+			return "redirect:/driver/showAll";
 		} else {
 			return "error-page";
 		}
@@ -72,7 +72,7 @@ public class DriverController {
 	public String updateDriverById(@PathVariable("idd")int idd, Model model) {
 		try {
 			model.addAttribute("driver", driverService.updateDriverById(idd));
-			return "update-page";
+			return "driver-update-page";
 			
 		}catch (Exception e) {
 			return "error-page";

@@ -37,7 +37,7 @@ public class TripController {
 		if (idd > -1) {
 			try {
 				model.addAttribute("DriverTrips", tripService.selectAllTripsByDriverId(idd));
-				return "tripByDriver-page";
+				return "trip-all-page";
 			} catch (Exception e) {
 				return "error-page"; // paradis error-page.html lapu
 		    }
