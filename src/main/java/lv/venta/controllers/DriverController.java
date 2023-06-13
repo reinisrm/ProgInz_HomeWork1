@@ -68,7 +68,7 @@ public class DriverController {
 		}
 	} 
 	
-	@GetMapping("/update/{id}")
+	@GetMapping("/update/{id}") // localhost:8080/driver/update/1
 	public String updateDriverById(@PathVariable("idd")int idd, Model model) {
 		try {
 			model.addAttribute("driver", driverService.updateDriverById(idd));
@@ -79,7 +79,7 @@ public class DriverController {
 		}
 	}
 	//TODO izlabot funkciju
-	@PostMapping("/update/{id}")
+	@PostMapping("/update/{id}") 
 	public String updateDriverById(@PathVariable("idd")int idd, @Valid Driver driver, BindingResult result) {
 		if(!result.hasErrors()) {
 			try {

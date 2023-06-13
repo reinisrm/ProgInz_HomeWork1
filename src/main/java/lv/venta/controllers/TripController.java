@@ -20,7 +20,7 @@ public class TripController {
 	@Autowired
 	private iTripService tripService;
 
-	@GetMapping("/showAll/city/{cityTitle}")
+	@GetMapping("/showAll/city/{cityTitle}") // localhost:8080/trip/showAll/city/(cityTitle)
 	public String showAllTripsByCityTitle(@PathVariable String cityTitle, Model model) {
 		if (cityTitle != null) {
 			try {
@@ -32,7 +32,7 @@ public class TripController {
 		} return "error-page";
 	}
 	
-	@GetMapping("/showAll/driver/{idd}")
+	@GetMapping("/showAll/driver/{idd}")  // localhost:8080/trip/showAll/driver/(idd)
 	public String showAllTripsByDriverId(@PathVariable int idd, Model model) {
 		if (idd > -1) {
 			try {
@@ -44,11 +44,11 @@ public class TripController {
 		} return "error-page";
 	}
 	
-	@GetMapping("/showAll/today")
+	@GetMapping("/showAll/today") // localhost:8080/trip/showAll/today
 	public ArrayList<Trip> showAllTripsToday() {
 		return tripService.selectAllTripsToday();
 	}
-	@GetMapping("/changeDriver/{idtr}/{idd}")
+	@GetMapping("/changeDriver/{idtr}/{idd}") // localhost:8080/trip/changeDriver/(idtr)/(idd)
 	private String changeTripDriverByDriverId(@PathVariable int idd, @PathVariable int idtr) {
 	    try {
 	        tripService.changeTripDriverByDriverId(idtr, idd);

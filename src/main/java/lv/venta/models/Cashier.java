@@ -40,5 +40,13 @@ public class Cashier extends Person {
 		super(name, surname);
 	}
 	
+	public void addTicket(Ticket input) {
+			
+		if(!ticket.contains(input)) {
+			ticket.add(input);
+		}
+			
+	}
+
 	
 }

@@ -46,6 +46,10 @@ public class Driver extends Person{
 		super(name, surname);
 		this.busCategory = busCategory;
 	}
-	
+	public void addTrip (Trip inputTrip) {
+		if(!trip.contains(inputTrip)) {
+			trip.add(inputTrip);
+		}
+	}
 	
 }

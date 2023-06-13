@@ -15,4 +15,6 @@ public interface iTicketService {
 	float calculateIncomeOfTripByTripId(int idtr);
 	
 	float calculateIncomeOfCashierByCashierId(int idc);
+	
+	Ticket insertNewTicketByTripId(int idtr);
 }

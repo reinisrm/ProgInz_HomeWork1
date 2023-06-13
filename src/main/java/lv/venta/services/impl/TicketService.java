@@ -3,6 +3,7 @@ package lv.venta.services.impl;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lv.venta.services.iTicketService;
@@ -14,6 +15,9 @@ import lv.venta.models.Trip;
 public class TicketService implements iTicketService {
 
 	private ArrayList<Ticket> allTickets = new ArrayList<>();
+	
+	@Autowired
+	private TripService tripService;
 	
 	@Override
 	public ArrayList<Ticket> selectAllChildTickets(boolean isChild) {
@@ -27,11 +31,11 @@ public class TicketService implements iTicketService {
 		
 	}
 	@Override
-	public ArrayList<Ticket> selectAllTicketsWherePriceIsLow(float priceLowerFilter) {
+	public ArrayList<Ticket> selectAllTicketsWherePriceIsLow(float threshold) {
 		ArrayList<Ticket> allTicketsWherePriceIsLow = new ArrayList<>();
 		
 		for(Ticket temp : allTickets) {
-			if(temp.getPrice() < priceLowerFilter) {
+			if(temp.getPrice() < threshold) {
 				allTicketsWherePriceIsLow.add(temp);
 			}
 		}
@@ -72,21 +76,29 @@ public class TicketService implements iTicketService {
 		
 	}
 	
-	//TODO Pabeigt/Partaisit funkciju
-	/*
+	@Override
 	public Ticket insertNewTicketByTripId(int idtr) {
-	    for (Ticket temp : allTickets) {
-	        if (temp.getTrip().getIdtr() == idtr) {
-	            return temp;
-	        }
-	    }
-
+	    ArrayList<Trip> trips = tripService.selectAllTripsByDriverId(idtr);
 	    
-	    Ticket newTicket = new Ticket(purchaseDateTime, price, trip, isChild, cashier);
-	    allTickets.add(newTicket);
-	    return newTicket;
-	} */
-	
+	    if (!trips.isEmpty()) {
+	        for (Ticket temp : allTickets) {
+	            if (temp.getTrip().getIdtr() == idtr) {
+	                return temp;
+	            }
+	        }
+	        
+	        Trip trip = trips.get(0);
+	        
+	        Ticket newTicket = new Ticket(LocalDateTime.now(), 0.0f, trip, false, null);
+	        allTickets.add(newTicket);
+	        return newTicket;
+	    }
+	    
+	    
+	    throw new IllegalArgumentException("No trips found with driver ID: " + idtr);
+	}
+
+
 	
 	
 	
