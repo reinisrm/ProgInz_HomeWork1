@@ -33,7 +33,7 @@ public class DriverController {
 	public String showDriverById(@PathVariable("idd") int idd,Model model) {
 		if(idd > -1) {
 			try {
-		model.addAttribute("MyDrivers", driverService.selectDriverById(idd));
+		model.addAttribute("MyDriversById", driverService.selectDriverById(idd));
 		
 		return "driver-one-page"; //"driver-by-id"
 			} catch (Exception e) {

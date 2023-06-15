@@ -37,8 +37,7 @@ public class ProgInzHomeWork1Application {
     		public void run(String... args) throws Exception {
 			
 				
-	
-            // Create and save objects in repositories
+
             Cashier cashier1 = new Cashier("Anna", "Vitola");
             Cashier cashier2 = new Cashier("Zane", "Berzina");
             cashierRepo.save(cashier1);
